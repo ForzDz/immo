@@ -19,8 +19,26 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   useEffect(() => {
     if (ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      setHeight(rect.height);
+      const updateHeight = () => {
+        const rect = ref.current?.getBoundingClientRect();
+        if (rect) {
+          setHeight(rect.height);
+        }
+      };
+
+      updateHeight();
+
+      const resizeObserver = new ResizeObserver(() => {
+        updateHeight();
+      });
+
+      resizeObserver.observe(ref.current);
+
+      return () => {
+        if (ref.current) {
+          resizeObserver.unobserve(ref.current);
+        }
+      };
     }
   }, [ref]);
 
@@ -98,7 +116,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           style={{
             height: height + "px",
           }}
-          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-muted to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
+          className="absolute md:left-8 left-[31px] top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-muted to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
         >
           <motion.div
             style={{
