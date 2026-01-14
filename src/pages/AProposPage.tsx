@@ -114,8 +114,8 @@ const AProposPage = () => {
                   Fondée en 2008, Immo Oran est née d'une vision simple : rendre
                   l'expérience immobilière plus humaine, transparente et efficace.
                 </p>
-                <div className="flex items-center gap-2 text-primary/90 text-xs font-bold uppercase tracking-wider">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                <div className="flex items-center gap-2 text-white/90 text-xs font-bold uppercase tracking-wider">
+                  <div className="w-1.5 h-1.5 rounded-full bg-white" />
                   Leader à Oran
                 </div>
               </div>
@@ -225,11 +225,11 @@ const AProposPage = () => {
       </section>
 
       {/* Stats */}
-      <section className="relative py-16 bg-gradient-to-br from-[#0A1929] via-[#1e3a52] to-[#0f1f2e] overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-primary rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary rounded-full blur-3xl" />
+      <section className="relative py-16 bg-white overflow-hidden">
+        {/* Decorative elements - Subtle light blobs for white background */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
         </div>
         
         <div className="relative container-custom">
@@ -243,13 +243,13 @@ const AProposPage = () => {
                 transition={{ delay: index * 0.1 }}
                 className="text-center group"
               >
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/20 backdrop-blur-sm mb-4 group-hover:bg-primary/30 transition-all duration-300">
-                  <stat.icon className="w-7 h-7 text-white" />
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 mb-4 group-hover:bg-primary/20 transition-all duration-300">
+                  <stat.icon className="w-7 h-7 text-primary" />
                 </div>
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2 group-hover:text-secondary transition-colors">
+                <div className="text-3xl md:text-4xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
                   {stat.value}
                 </div>
-                <div className="text-white/70 text-sm font-medium">{stat.label}</div>
+                <div className="text-muted-foreground text-sm font-medium">{stat.label}</div>
               </motion.div>
             ))}
           </div>
