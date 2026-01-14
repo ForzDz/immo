@@ -18,10 +18,10 @@ const Index = () => {
       <main>
         <HeroSlider />
         <AboutPreviewSection />
+        <TimelineSection />
         <FeaturesSection />
         <PropertiesSection />
         <AmenitiesSection />
-        <TimelineSection />
         <MapSection />
         <FAQSection />
         <CTASection />
