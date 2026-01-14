@@ -93,44 +93,8 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* Contact Info Cards */}
-      <section className="pb-16">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {contactInfo.map((info, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-card transition-all duration-300"
-              >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <info.icon className="w-5 h-5 text-primary" />
-                </div>
-                <h3 className="font-semibold text-foreground mb-2">{info.title}</h3>
-                {info.link ? (
-                  <a
-                    href={info.link}
-                    target={info.link.startsWith('http') ? '_blank' : undefined}
-                    rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="text-muted-foreground text-sm whitespace-pre-line hover:text-primary transition-colors"
-                  >
-                    {info.content}
-                  </a>
-                ) : (
-                  <p className="text-muted-foreground text-sm whitespace-pre-line">
-                    {info.content}
-                  </p>
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Form & Map */}
-      <section className="section-padding pt-0">
+      <section className="section-padding">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Form */}
@@ -267,6 +231,42 @@ const ContactPage = () => {
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Info Cards */}
+      <section className="pb-16">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {contactInfo.map((info, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-card transition-all duration-300"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <info.icon className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">{info.title}</h3>
+                {info.link ? (
+                  <a
+                    href={info.link}
+                    target={info.link.startsWith('http') ? '_blank' : undefined}
+                    rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className="text-muted-foreground text-sm whitespace-pre-line hover:text-primary transition-colors"
+                  >
+                    {info.content}
+                  </a>
+                ) : (
+                  <p className="text-muted-foreground text-sm whitespace-pre-line">
+                    {info.content}
+                  </p>
+                )}
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
