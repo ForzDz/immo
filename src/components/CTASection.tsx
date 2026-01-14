@@ -53,6 +53,7 @@ const CTASection = () => {
           </motion.div>
         </div>
       </div>
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0A1929] via-[#0A1929]/80 to-transparent backdrop-blur-[1px] z-10 pointer-events-none" />
     </section>
   );
 };
