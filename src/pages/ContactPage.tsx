@@ -62,7 +62,7 @@ const ContactPage = () => {
       <Header />
 
       {/* Hero */}
-      <section className="relative pt-32 pb-16 overflow-hidden">
+      <section className="relative pt-32 pb-32 md:pb-48 overflow-hidden">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -71,7 +71,7 @@ const ContactPage = () => {
         {/* Overlay */}
         <div className="absolute inset-0 hero-overlay" />
         {/* Gradient fade to white */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent via-60% to-white" />
         
         <div className="relative container-custom">
           <motion.div
