@@ -46,7 +46,7 @@ const CTASection = () => {
               Demander un rendez-vous
               <ArrowRight className="w-5 h-5" />
             </Link>
-            <a href="tel:+213600000000" className="btn-hero-outline">
+            <a href="tel:+213556482798" className="btn-hero-outline">
               <Phone className="w-5 h-5" />
               Appeler maintenant
             </a>

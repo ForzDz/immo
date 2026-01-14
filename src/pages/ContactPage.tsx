@@ -16,8 +16,8 @@ const contactInfo = [
   {
     icon: Phone,
     title: 'Téléphone',
-    content: '+213 567843609',
-    link: 'tel:+213567843609',
+    content: '+213 556 48 27 98',
+    link: 'tel:+213556482798',
   },  
   {
     icon: Mail,
@@ -204,7 +204,7 @@ const ContactPage = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                        placeholder="+213 6 00 00 00 00"
+                        placeholder="+213 556 48 27 98"
                       />
                     </div>
                     <div>

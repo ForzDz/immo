@@ -80,8 +80,8 @@ const PropertyDetailPage = () => {
       <section className="pb-16">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Left Column - Gallery */}
-            <div className="lg:col-span-2">
+            {/* 1. Left Column Part 1 - Gallery - Takes top left on Desktop */}
+            <div className="lg:col-span-2 rounded-2xl overflow-hidden">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -93,7 +93,7 @@ const PropertyDetailPage = () => {
                   navigation
                   pagination={{ clickable: true }}
                   thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
-                  className="rounded-2xl overflow-hidden aspect-[4/3]"
+                  className="rounded-2xl overflow-hidden aspect-[4/3] bg-muted"
                 >
                   {galleryImages.map((img, index) => (
                     <SwiperSlide key={index}>
@@ -107,6 +107,8 @@ const PropertyDetailPage = () => {
                 </Swiper>
 
                 {/* Thumbnails */}
+                {/* Desktop: Show thumbnails below main image */}
+                {/* Mobile: Thumbnails are hidden to save space or kept if preferred. Keeping them for now. */}
                 <Swiper
                   modules={[Thumbs]}
                   onSwiper={setThumbsSwiper}
@@ -132,71 +134,10 @@ const PropertyDetailPage = () => {
                   ))}
                 </Swiper>
               </motion.div>
-
-              {/* Description */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="mt-8"
-              >
-                <h2 className="text-xl font-semibold text-foreground mb-4">Description</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  Ce magnifique {property.type.toLowerCase()} de {property.area}m² offre un cadre de vie
-                  exceptionnel au cœur de {property.location}. Lumineux et spacieux, il dispose de
-                  {property.beds > 0 ? ` ${property.beds} chambre${property.beds > 1 ? 's' : ''}` : ''} 
-                  {property.baths > 0 ? ` et ${property.baths} salle${property.baths > 1 ? 's' : ''} de bain` : ''}.
-                  Entièrement rénové avec des matériaux de qualité, ce bien bénéficie d'une exposition
-                  optimale et de nombreux rangements. Proche de toutes commodités (transports, commerces,
-                  écoles), il représente une opportunité rare sur le marché.
-                </p>
-              </motion.div>
-
-              {/* Amenities */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="mt-8"
-              >
-                <h2 className="text-xl font-semibold text-foreground mb-4">Équipements</h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                  {amenities.map((amenity) => (
-                    <div
-                      key={amenity}
-                      className="flex items-center gap-2 p-3 rounded-xl bg-muted/50"
-                    >
-                      <Check className="w-4 h-4 text-primary" />
-                      <span className="text-sm text-foreground">{amenity}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Map */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="mt-8"
-              >
-                <h2 className="text-xl font-semibold text-foreground mb-4">Localisation</h2>
-                <div className="rounded-2xl overflow-hidden h-80">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10200.123456789!2d-0.6417!3d35.6971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7f8a4a3e5e5e5e%3A0x5e5e5e5e5e5e5e5e!2sOran%2C%20Algeria!5e0!3m2!1sen!2sus!4v1704638191456!5m2!1sen!2sus"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
-                </div>
-              </motion.div>
             </div>
 
-            {/* Right Column - Info Card */}
-            <div className="lg:col-span-1">
+            {/* 2. Right Column - Info Card - Takes right side on Desktop (span 2 rows), appears 2nd on Mobile */}
+            <div className="lg:col-span-1 lg:row-span-2">
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -258,14 +199,14 @@ const PropertyDetailPage = () => {
                   {/* CTA Buttons */}
                   <div className="space-y-2 md:space-y-3">
                     <a
-                      href="tel:+213600000000"
+                      href="tel:+213556482798"
                       className="btn-hero w-full justify-center text-sm md:text-base"
                     >
                       <Phone className="w-4 h-4 md:w-5 md:h-5" />
                       Appeler
                     </a>
                     <a
-                      href="https://wa.me/213600000000"
+                      href="https://wa.me/213556482798"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full flex items-center justify-center gap-2 px-4 md:px-6 py-2.5 md:py-3 rounded-full bg-[#25D366] text-white text-sm md:text-base font-semibold hover:bg-[#1da851] transition-colors"
@@ -295,6 +236,69 @@ const PropertyDetailPage = () => {
                 </div>
               </motion.div>
             </div>
+
+            {/* 3. Left Column Part 2 - Description & Details - Takes bottom left on Desktop */}
+            <div className="lg:col-span-2 space-y-8">
+              {/* Description */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+              >
+                <h2 className="text-xl font-semibold text-foreground mb-4">Description</h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  Ce magnifique {property.type.toLowerCase()} de {property.area}m² offre un cadre de vie
+                  exceptionnel au cœur de {property.location}. Lumineux et spacieux, il dispose de
+                  {property.beds > 0 ? ` ${property.beds} chambre${property.beds > 1 ? 's' : ''}` : ''} 
+                  {property.baths > 0 ? ` et ${property.baths} salle${property.baths > 1 ? 's' : ''} de bain` : ''}.
+                  Entièrement rénové avec des matériaux de qualité, ce bien bénéficie d'une exposition
+                  optimale et de nombreux rangements. Proche de toutes commodités (transports, commerces,
+                  écoles), il représente une opportunité rare sur le marché.
+                </p>
+              </motion.div>
+
+              {/* Amenities */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                <h2 className="text-xl font-semibold text-foreground mb-4">Équipements</h2>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  {amenities.map((amenity) => (
+                    <div
+                      key={amenity}
+                      className="flex items-center gap-2 p-3 rounded-xl bg-muted/50"
+                    >
+                      <Check className="w-4 h-4 text-primary" />
+                      <span className="text-sm text-foreground">{amenity}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Map */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                <h2 className="text-xl font-semibold text-foreground mb-4">Localisation</h2>
+                <div className="rounded-2xl overflow-hidden h-80">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10200.123456789!2d-0.6417!3d35.6971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7f8a4a3e5e5e5e%3A0x5e5e5e5e5e5e5e5e!2sOran%2C%20Algeria!5e0!3m2!1sen!2sus!4v1704638191456!5m2!1sen!2sus"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
+              </motion.div>
+            </div>
+
+
           </div>
         </div>
       </section>

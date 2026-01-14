@@ -70,13 +70,13 @@ const Footer = () => {
               </li>
               <li className="group">
                 <a
-                  href="tel:+213567843609"
+                  href="tel:+213556482798"
                   className="flex items-center gap-3 text-white/70 hover:text-primary transition-all duration-300 group-hover:translate-x-1"
                 >
                   <div className="p-1.5 rounded-lg bg-primary/20 group-hover:bg-primary/30 transition-colors">
                     <Phone className="w-4 h-4 text-white" />
                   </div>
-                  <span className="text-sm font-medium">+213 6 56 78 43 609</span>
+                  <span className="text-sm font-medium">+213 556 48 27 98</span>
                 </a>
               </li>
               <li className="group">
