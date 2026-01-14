@@ -45,7 +45,7 @@ const MapSection = () => {
           className="relative rounded-3xl overflow-hidden shadow-card-hover"
         >
           {/* Placeholder Map */}
-          <div className="aspect-[16/9] md:aspect-[21/9] bg-gradient-to-br from-primary/5 to-primary/10 relative">
+          <div className="h-[450px] md:h-auto md:aspect-[21/9] bg-gradient-to-br from-primary/5 to-primary/10 relative">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10200.123456789!2d-0.6417!3d35.6971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7f8a4a3e5e5e5e%3A0x5e5e5e5e5e5e5e5e!2sOran%2C%20Algeria!5e0!3m2!1sen!2sus!4v1704638191456!5m2!1sen!2sus"
               width="100%"
