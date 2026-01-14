@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import LazyImage from './LazyImage';
 
 // Import des images
 import featureSecurity from '@/assets/feature-security.jpg';
@@ -107,11 +108,14 @@ const FeaturesSection = () => {
               className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer"
             >
               {/* Background Image */}
-              <img
-                src={feature.image}
-                alt={feature.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
+              <div className="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-110">
+                <LazyImage
+                  src={feature.image}
+                  alt={feature.title}
+                  className="w-full h-full"
+                  aspectRatio="4/3"
+                />
+              </div>
               
               {/* Gradient Overlay - Only visible on hover */}
               <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

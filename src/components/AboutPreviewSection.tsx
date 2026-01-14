@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Award, Users, Building } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import LazyImage from './LazyImage';
 import aboutTeam from '@/assets/about-team.jpg';
 import aboutBuilding from '@/assets/about-building.jpg';
 
@@ -25,10 +26,11 @@ const AboutPreviewSection = () => {
           >
             {/* Main image */}
             <div className="relative rounded-2xl overflow-hidden shadow-lg shadow-primary/10">
-              <img
+              <LazyImage
                 src={aboutBuilding}
                 alt="Résidence moderne"
-                className="w-full h-[400px] object-cover"
+                className="w-full h-[400px]"
+                aspectRatio="auto"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" />
             </div>
@@ -41,10 +43,11 @@ const AboutPreviewSection = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="absolute -bottom-4 md:-bottom-8 -right-2 md:-right-4 lg:-right-8 w-2/3 max-w-[calc(100%-1rem)] rounded-2xl overflow-hidden shadow-lg shadow-primary/10 border-2 md:border-4 border-background"
             >
-              <img
+              <LazyImage
                 src={aboutTeam}
                 alt="Notre équipe"
-                className="w-full h-[200px] object-cover"
+                className="w-full h-[200px]"
+                aspectRatio="auto"
               />
             </motion.div>
           </motion.div>

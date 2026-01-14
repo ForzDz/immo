@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Bed, Bath, Square, MapPin, ArrowRight } from 'lucide-react';
+import LazyImage from './LazyImage';
 
 interface PropertyCardProps {
   id: string;
@@ -39,13 +40,18 @@ const PropertyCard = ({
       >
         {/* Image Container */}
         <div className="relative overflow-hidden aspect-[4/3]">
-          <motion.img
-            src={image}
-            alt={title}
-            className="w-full h-full object-cover"
+          <motion.div
             whileHover={{ scale: 1.12 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          />
+            className="w-full h-full"
+          >
+            <LazyImage
+              src={image}
+              alt={title}
+              className="w-full h-full"
+              aspectRatio="4/3"
+            />
+          </motion.div>
           
           {/* Gradient Overlay */}
           <motion.div 

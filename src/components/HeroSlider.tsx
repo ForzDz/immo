@@ -37,6 +37,12 @@ const slides = [
 const HeroSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
+  // Preload first hero image only
+  useEffect(() => {
+    const img = new Image();
+    img.src = hero1;
+  }, []);
+
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <Swiper
@@ -58,13 +64,14 @@ const HeroSlider = () => {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="relative h-full w-full">
-              {/* Background Image */}
+              {/* Background Image - optimized loading */}
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform"
                 style={{
                   backgroundImage: `url(${slide.image})`,
                   transform: activeIndex === index ? 'scale(1.1)' : 'scale(1)',
                   transitionDuration: '8000ms',
+                  ...(index > 0 && { willChange: 'transform' }),
                 }}
               />
               {/* Overlay */}
