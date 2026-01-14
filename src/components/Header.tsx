@@ -16,6 +16,12 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
+  // Pages displaying a Hero section with dark background image
+  const hasHero = ['/', '/contact', '/a-propos', '/biens'].includes(location.pathname);
+  
+  // Show dark header (white background, dark text) if scrolled OR if the page doesn't have a hero section (like details page)
+  const showDarkHeader = isScrolled || !hasHero;
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -31,7 +37,7 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
+        showDarkHeader
           ? 'bg-white/95 backdrop-blur-xl shadow-md shadow-primary/5 border-b border-border/50 py-3'
           : 'bg-transparent py-5'
       }`}
@@ -44,13 +50,13 @@ const Header = () => {
               src={logo} 
               alt="Immo Oran" 
               className={`h-10 md:h-12 w-auto transition-all duration-300 ${
-                isScrolled ? 'brightness-0' : 'brightness-0 invert'
+                showDarkHeader ? 'brightness-0' : 'brightness-0 invert'
               }`}
             />
             <div className="absolute inset-0 bg-primary/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity blur-xl" />
           </div>
           <span className={`hidden sm:block font-bold text-base md:text-lg tracking-tight transition-colors duration-300 ${
-            isScrolled ? 'text-foreground' : 'text-white'
+            showDarkHeader ? 'text-foreground' : 'text-white'
           }`}>
             Immo Oran
           </span>
@@ -65,7 +71,7 @@ const Header = () => {
               className={`relative text-sm font-semibold transition-all duration-300 group ${
                 location.pathname === link.path
                   ? 'text-primary'
-                  : isScrolled
+                  : showDarkHeader
                   ? 'text-foreground hover:text-primary'
                   : 'text-white/90 hover:text-white'
               }`}
@@ -95,7 +101,7 @@ const Header = () => {
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className={`md:hidden p-2 rounded-lg transition-colors ${
-            isScrolled ? 'text-foreground' : 'text-white'
+            showDarkHeader ? 'text-foreground' : 'text-white'
           }`}
           aria-label="Toggle menu"
         >
