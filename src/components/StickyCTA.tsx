@@ -4,6 +4,19 @@ import { Phone, MessageCircle } from 'lucide-react';
 const StickyCTA = () => {
   return (
     <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 flex flex-col gap-3 max-w-[calc(100vw-2rem)]">
+      {/* Phone Button */}
+      <motion.a
+        initial={{ opacity: 0, scale: 0.8, x: 20 }}
+        animate={{ opacity: 1, scale: 1, x: 0 }}
+        transition={{ delay: 0.8, duration: 0.3 }}
+        href="tel:+213556482798"
+        className="group flex items-center justify-center md:justify-start gap-0 md:gap-3 w-12 h-12 md:w-auto md:h-auto md:px-5 md:py-3.5 rounded-full bg-primary text-white shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:scale-105 transition-all duration-300"
+        aria-label="Appeler maintenant"
+      >
+        <Phone className="w-5 h-5 md:w-5 md:h-5" />
+        <span className="hidden md:block font-medium text-base">Appeler</span>
+      </motion.a>
+
       {/* WhatsApp Button */}
       <motion.a
         initial={{ opacity: 0, scale: 0.8, y: 20 }}

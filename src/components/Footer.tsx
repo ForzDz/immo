@@ -104,7 +104,7 @@ const Footer = () => {
             </p>
             <span className="hidden sm:inline text-white/30">•</span>
             <p className="text-white/50 text-sm">
-              Conçu avec ❤️ avec Yacine
+              Créé avec ❤️ par Yacine
             </p>
           </div>
           <div className="flex items-center gap-4 sm:gap-6">

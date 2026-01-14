@@ -22,6 +22,7 @@ export const properties = [
     area: 95,
     type: 'Appartement',
     featured: true,
+    floorPlan: property1,
   },
   {
     id: '2',

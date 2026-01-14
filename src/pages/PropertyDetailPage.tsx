@@ -25,6 +25,8 @@ import 'swiper/css/thumbs';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StickyCTA from '@/components/StickyCTA';
+import WhyUsSection from '@/components/WhyUsSection';
+import TestimonialsSection from '@/components/TestimonialsSection';
 import { properties } from '@/components/PropertiesSection';
 
 const amenities = [
@@ -302,6 +304,61 @@ const PropertyDetailPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Floor Plan Section */}
+      <section className="py-16 bg-muted/30">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-2xl font-bold text-foreground mb-8"
+            >
+              Plan d'étage
+            </motion.h2>
+            <div className="bg-white p-6 rounded-2xl border border-border">
+               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                  <div className="rounded-xl overflow-hidden bg-muted aspect-[4/3]">
+                    <img 
+                      src={property.floorPlan || property.image} 
+                      alt="Plan d'étage" 
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold mb-4">Agencement Optimisé</h3>
+                    <p className="text-muted-foreground mb-4">
+                      Ce plan a été conçu pour maximiser l'espace et la lumière naturelle. 
+                      La circulation entre les pièces de vie et les espaces nuit est fluide et fonctionnelle.
+                    </p>
+                    <ul className="space-y-2">
+                       <li className="flex items-center gap-2 text-sm text-foreground">
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                          Grand séjour lumineux
+                       </li>
+                       <li className="flex items-center gap-2 text-sm text-foreground">
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                          Cuisine ouverte moderne
+                       </li>
+                       <li className="flex items-center gap-2 text-sm text-foreground">
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                          Suite parentale avec dressing
+                       </li>
+                    </ul>
+                  </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Us Section */}
+      <WhyUsSection />
+
+      {/* Testimonials Section */}
+      <TestimonialsSection />
+
 
       <Footer />
       <StickyCTA />
