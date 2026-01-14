@@ -77,7 +77,53 @@ const AProposPage = () => {
       {/* Our Story */}
       <section className="section-padding bg-gradient-to-b from-white via-muted/10 to-white">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Mobile Layout - Card Style */}
+          <div className="lg:hidden mb-8">
+            <div className="text-center mb-8">
+              <span className="text-primary text-sm font-bold tracking-[0.2em] uppercase border-b-2 border-primary pb-2">
+                Notre Histoire
+              </span>
+            </div>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative rounded-3xl overflow-hidden aspect-[3/5] shadow-2xl"
+            >
+              <img 
+                src={hero2} 
+                alt="Notre histoire depuis 2008" 
+                className="absolute inset-0 w-full h-full object-cover scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent" />
+              
+              <div className="absolute bottom-0 left-0 right-0 p-8">
+                <h2 className="text-4xl font-serif font-bold text-white mb-2 leading-none">
+                  Une Passion <br/>
+                  <span className="text-white/90 text-2xl font-sans font-medium tracking-wide">pour</span> <br/>
+                  <span className="text-primary">l'Immobilier</span>
+                </h2>
+                 <div className="flex items-center gap-3 my-4">
+                  <div className="h-px bg-white/30 flex-1" />
+                  <span className="text-white/90 font-serif italic text-xl">depuis 2008</span>
+                  <div className="h-px bg-white/30 flex-1" />
+                </div>
+                
+                <p className="text-white/80 text-sm leading-relaxed mb-4">
+                  Fondée en 2008, Immo Oran est née d'une vision simple : rendre
+                  l'expérience immobilière plus humaine, transparente et efficace.
+                </p>
+                <div className="flex items-center gap-2 text-primary/90 text-xs font-bold uppercase tracking-wider">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Leader à Oran
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Desktop Layout - Original Grid */}
+          <div className="hidden lg:grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -96,14 +142,8 @@ const AProposPage = () => {
                   l'expérience immobilière plus humaine, transparente et efficace.
                 </p>
                 <p>
-                  Au fil des années, nous avons bâti notre réputation sur des valeurs
-                  fortes : l'écoute de nos clients, l'excellence de notre service et
-                  notre connaissance approfondie du marché local.
-                </p>
-                <p>
                   Aujourd'hui, nous sommes fiers d'être devenus une référence dans le
-                  secteur de la location immobilière, avec une équipe passionnée de
-                  professionnels dédiés à votre satisfaction.
+                  secteur de la location immobilière.
                 </p>
               </div>
             </motion.div>
