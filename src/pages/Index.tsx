@@ -10,6 +10,8 @@ import FAQSection from '@/components/FAQSection';
 import CTASection from '@/components/CTASection';
 import Footer from '@/components/Footer';
 import StickyCTA from '@/components/StickyCTA';
+import TestimonialsSection from '@/components/TestimonialsSection';
+import WhyUsSection from '@/components/WhyUsSection';
 
 const Index = () => {
   return (
@@ -21,6 +23,8 @@ const Index = () => {
         <TimelineSection />
         <FeaturesSection />
         <PropertiesSection />
+        <WhyUsSection />
+        <TestimonialsSection />
         <AmenitiesSection />
         <MapSection />
         <FAQSection />
